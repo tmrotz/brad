@@ -75,3 +75,9 @@ modules/views/
 
 #webpack
 /bundle
+
+# --------------------
+# Environment Files
+# --------------------
+config/env/production.js
+
