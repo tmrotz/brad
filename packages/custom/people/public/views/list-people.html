@@ -1,0 +1,19 @@
+<section>
+  <div class="page-header">
+    <h1>People</h1>
+  </div>
+  <div>
+    <label>Any: <input ng-model="search.$"></label> <br>
+    <label>Name only <input ng-model="search.full_name"></label><br>
+    <label>Url only <input ng-model="search.url"></label><br>
+    <label>Attributes only <input ng-model="search.attributes"></label><br>
+    <label>Equality <input type="checkbox" ng-model="strict"></label><br>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="person in people | filter:search:strict" class="list-group-item">
+      <h4 class="list-group-item-heading" ng-bind="person.full_name"></h4>
+      <p class="list-group-item-text" ng-bind="person.url"></p>
+      <p class="list-group-item-text" ng-bind="person.attributes"></p>
+    </a>
+  </div>
+</section>

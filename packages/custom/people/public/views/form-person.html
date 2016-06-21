@@ -1,0 +1,31 @@
+<section>
+  <div class="page-header">
+    <h1>{{person._id ? 'Edit Person' : 'New Person'}}</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="form.personForm" class="form-horizontal" ng-submit="save(form.personForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="full_name">Full Name</label>
+          <input name="full_name" type="text" ng-model="person.full_name" id="full_name" class="form-control" placeholder="Full Name" required>
+          <div ng-messages="form.personForm.full_name.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Person full name is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="url">Url</label>
+          <input name="url" type="text" ng-model="person.url" id="url" class="form-control" placeholder="Url" required>
+          <div ng-messages="form.personForm.url.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Person url is required.</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">{{person._id ? 'Update' : 'Create'}}</button>
+        </div>
+        <div ng-show="error" class="text-danger">
+          <strong ng-bind="error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>
