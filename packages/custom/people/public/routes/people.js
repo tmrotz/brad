@@ -1,12 +1,82 @@
 (function() {
   'use strict';
 
+  function getPerson($stateParams, PeopleService) {     
+    return PeopleService.get({                          
+      personId: $stateParams.personId                   
+    }).$promise;                                        
+  }                                                     
+                                                        
+  getPerson.$inject = ['$stateParams', 'PeopleService'];
+                                                        
+  function newPerson(PeopleService) {                   
+    return new PeopleService();                         
+  }                                                     
+
+  newPerson.$inject = ['PeopleService'];                
+                                                        
   function PeopleRoutes($stateProvider) {
     $stateProvider
-      .state('people list page', {
+      .state('people', {
+        abstract: true,
         url: '/people',
+        template: '<ui-view/>'
+      })
+      .state('people.list', {
+        url: '',
         templateUrl: 'people/views/list-people.html',
-        controller: 'PeopleController'
+        controller: 'PeopleListController',
+        data: {
+          pageTitle: 'People List'
+        },
+        requiredCircles: {
+          circles: ['admin']
+        }
+      })
+      .state('people.create', {
+        url: '/create',
+        templateUrl: 'people/views/form-person.html',
+        controller: 'PeopleController',
+        controllerAs: 'vm',
+        resolve: {
+          personResolve: newPerson
+        },
+        data: {
+          pageTitle: 'People Create'
+        },
+        requiredCircles: {
+          circles: ['admin']
+        }
+      })
+      .state('people.edit', {
+        url: '/:personId/edit',
+        templateUrl: 'people/views/form-person.html',
+        controller: 'PeopleController',
+        controllerAs: 'vm',
+        resolve: {
+          personResolve: getPerson
+        },
+        data: {
+          pageTitle: 'Edit Person {{ personResolve.title }}'
+        },
+        requiredCircles: {
+          circles: ['admin']
+        }
+      })
+      .state('people.view', {
+        url: '/:personId',
+        templateUrl: 'people/views/view-person.html',
+        controller: 'PeopleController',
+        controllerAs: 'vm',
+        resolve: {
+          personResolve: getPerson
+        },
+        data: {
+          pageTitle: 'Person {{ personResolve.title }}'
+        },
+        requiredCircles: {
+          circles: ['admin']
+        }
       });
   }
 

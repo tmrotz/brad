@@ -1,15 +1,15 @@
 <section>
   <div class="page-header">
-    <h1 ng-bind="person.full_name"></h1>
+    <h1 ng-bind="vm.person.full_name"></h1>
   </div>
-  <div class="pull-right" ng-show="person.isCurrentUserOwner">
-    <a class="btn btn-primary" ui-sref="people.edit({ personId: person._id })">
+  <div class="pull-right" ng-show="vm.person.isCurrentUserOwner">
+    <a class="btn btn-primary" ui-sref="people.edit({ personId: vm.person._id })">
       <i class="glyphicon glyphicon-edit"></i>
     </a>
-    <a class="btn btn-primary" ng-click="remove()">
+    <a class="btn btn-primary" ng-click="vm.remove()">
       <i class="glyphicon glyphicon-trash"></i>
     </a>
   </div>
-  <p class="lead" ng-bind="person.url"></p>
-  <p class="lead" ng-bind="person.attributes"></p>
+  <p class="lead" ng-bind="vm.person.url"></p>
+  <p class="lead" ng-bind="vm.person.moo"></p>
 </section>

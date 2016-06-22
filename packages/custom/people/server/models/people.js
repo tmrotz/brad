@@ -26,7 +26,7 @@ var PersonSchema = new Schema({
     trim: true,
     required: 'Url cannot be blank'
   },
-  attributes: [String],
+  moo: [String],
   user: {
     type: Schema.ObjectId,
     ref: 'User'

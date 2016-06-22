@@ -11,15 +11,15 @@ var People = new Module('people');
  * All MEAN packages require registration
  * Dependency injection is used to define required modules
  */
-People.register(function(app, auth, database) {
+People.register(function(app, auth, database, circles) {
 
   //We enable routing. By default the Package Object is passed to the routes
-  People.routes(app, auth, database);
+  People.routes(app, auth, database, circles);
 
   //We are adding a link to the main menu for all authenticated users
   People.menus.add({
-    title: 'people list page',
-    link: 'people list page',
+    title: 'People List Page',
+    link: 'people.list',
     roles: ['authenticated'],
     menu: 'main'
   });

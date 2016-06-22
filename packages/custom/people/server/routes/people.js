@@ -5,17 +5,23 @@
 
   /* jshint -W098 */
   // The Package is past automatically as first parameter
-  module.exports = function(People, app, auth, database) {
+  module.exports = function(People, app, auth, database, circles) {
 
-    // Single person routes
-    app.route('/api/people/:personId')
-      .put(PeopleController.update)
-      .delete(PeopleController.delete);
+    var requiresAdmin = circles.controller.hasCircle('admin');
+    var requiresLogin = circles.controller.hasCircle('authenticated');
 
     // People collection routes
-    app.route('/api/people')
+    app.route('/api/people').all(requiresAdmin)
       .get(PeopleController.list)
       .post(PeopleController.create);
 
+    // Single person routes
+    app.route('/api/people/:personId').all(requiresAdmin)
+      .get(PeopleController.read)
+      .put(PeopleController.update)
+      .delete(PeopleController.delete);
+
+    // Finish by binding the person middleware
+    app.param('personId', PeopleController.personByID);
   };
 })();
