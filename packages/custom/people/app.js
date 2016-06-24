@@ -20,9 +20,11 @@ People.register(function(app, auth, database, circles) {
   People.menus.add({
     title: 'People List Page',
     link: 'people.list',
-    roles: ['authenticated'],
+    roles: ['employee'],
     menu: 'main'
   });
+
+  circles.registerCircle('employee', ['admin']);
   
   /**
     //Uncomment to use. Requires meanio@0.3.7 or above

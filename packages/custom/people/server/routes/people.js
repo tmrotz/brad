@@ -8,15 +8,15 @@
   module.exports = function(People, app, auth, database, circles) {
 
     var requiresAdmin = circles.controller.hasCircle('admin');
-    var requiresLogin = circles.controller.hasCircle('authenticated');
+    var requiresEmployee = circles.controller.hasCircle('employee');
 
     // People collection routes
-    app.route('/api/people').all(requiresAdmin)
+    app.route('/api/people').all(requiresEmployee)
       .get(PeopleController.list)
       .post(PeopleController.create);
 
     // Single person routes
-    app.route('/api/people/:personId').all(requiresAdmin)
+    app.route('/api/people/:personId').all(requiresEmployee)
       .get(PeopleController.read)
       .put(PeopleController.update)
       .delete(PeopleController.delete);

@@ -30,7 +30,7 @@
           pageTitle: 'People List'
         },
         requiredCircles: {
-          circles: ['admin']
+          circles: ['employee']
         }
       })
       .state('people.create', {
@@ -45,7 +45,7 @@
           pageTitle: 'People Create'
         },
         requiredCircles: {
-          circles: ['admin']
+          circles: ['employee']
         }
       })
       .state('people.edit', {
@@ -60,7 +60,7 @@
           pageTitle: 'Edit Person {{ personResolve.title }}'
         },
         requiredCircles: {
-          circles: ['admin']
+          circles: ['employee']
         }
       })
       .state('people.view', {
@@ -75,7 +75,7 @@
           pageTitle: 'Person {{ personResolve.title }}'
         },
         requiredCircles: {
-          circles: ['admin']
+          circles: ['employee']
         }
       });
   }
