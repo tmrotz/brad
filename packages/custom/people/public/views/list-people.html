@@ -1,6 +1,9 @@
-<section>
+<section ng-controller="PeopleListController">
   <div class="page-header">
     <h1>People</h1>
+  </div>
+  <div class="alert alert-warning text-center">
+    <a ui-sref="people.create">Create Person</a>
   </div>
   <div>
     <label>Any: <input ng-model="search.$"></label> <br>
@@ -8,6 +11,13 @@
     <label>Url only <input ng-model="search.url"></label><br>
     <label>Moo only <input ng-model="search.moo"></label><br>
     <label>Equality <input type="checkbox" ng-model="strict"></label><br>
+  </div>
+  <div>
+  <form ng-submit="foobar()">
+    Enter text and hit enter:
+    <input type="text" ng-model="moo" name="moo" />
+    <input type="submit" id="submit" value="Submit" />
+  </form>
   </div>
   <div class="list-group">
     <a ng-repeat="person in people | filter:search:strict" ui-sref="people.view({ personId: person._id })" class="list-group-item">

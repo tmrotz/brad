@@ -26,6 +26,30 @@ var PersonSchema = new Schema({
     trim: true,
     required: 'Url cannot be blank'
   },
+  email: {
+    type: String,
+    default: '',
+    trim: true
+  },
+  phone: {
+    type: String,
+    default: '',
+    trim: true
+  },
+  job: {
+    type: String,
+    default: '',
+    trim: true
+  },
+  location_safe: {
+    type: String,
+    default: '',
+    trim: true
+  },
+  notes: {
+    type: String,
+    default: ''
+  },
   moo: [String],
   user: {
     type: Schema.ObjectId,

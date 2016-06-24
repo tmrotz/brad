@@ -12,13 +12,32 @@
             <p class="help-block error-text" ng-message="required">Person full name is required.</p>
           </div>
         </div>
-        <label>Moo: <input name="moo" ng-model="vm.person.moo" ng-list></label>
         <div class="form-group" show-errors>
           <label class="control-label" for="url">Url</label>
           <input name="url" type="text" ng-model="vm.person.url" id="url" class="form-control" placeholder="Url" required>
           <div ng-messages="vm.form.personForm.url.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Person url is required.</p>
           </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="location_safe">Location</label>
+          <input name="location_safe" type="text" ng-model="vm.person.location_safe" id="location_safe" class="form-control" placeholder="location_safe">
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="job">Job Title</label>
+          <input name="job" type="text" ng-model="vm.person.job" id="job" class="form-control" placeholder="job">
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="email">Email</label>
+          <input name="email" type="text" ng-model="vm.person.email" id="email" class="form-control" placeholder="email">
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="phone">Phone</label>
+          <input name="phone" type="text" ng-model="vm.person.phone" id="phone" class="form-control" placeholder="phone">
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="moo">Moo</label>
+          <input name="moo" ng-list ng-model="vm.person.moo" id="moo" class="form-control" placeholder="moo">
         </div>
         <div class="form-group">
           <button type="submit" class="btn btn-default">{{vm.person._id ? 'Update' : 'Create'}}</button>

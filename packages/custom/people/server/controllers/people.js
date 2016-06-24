@@ -70,7 +70,10 @@ exports.delete = function (req, res) {
  * List of People
  */
 exports.list = function (req, res) {
-  Person.find().limit(100).sort('-created').exec(function (err, people) {
+  var search = req.query.moo ? {'moo': new RegExp(req.query.moo, 'i')} : {};
+  var limit = req.query.limit || 100;
+
+  Person.find(search).sort('-created').exec(function (err, people) {
     if (err) {
       return res.status(400).send({
         message: err.message

@@ -3,19 +3,20 @@
 
   /* jshint -W098 */
 
-  function PeopleListController($scope, Global, PeopleService, $stateParams) {
-    $scope.global = Global;
+  function PeopleListController($scope, PeopleService, $stateParams) {
     $scope.package = {
         name: 'people'
     };
 
-    $scope.people = PeopleService.query();
+    $scope.foobar = function () {
+      $scope.people = PeopleService.query({moo: $scope.moo});
+    };
   }
 
   angular
     .module('mean.people')
     .controller('PeopleListController', PeopleListController);
 
-  PeopleListController.$inject = ['$scope', 'Global', 'PeopleService', '$stateParams'];
+  PeopleListController.$inject = ['$scope', 'PeopleService', '$stateParams'];
 
 })();
