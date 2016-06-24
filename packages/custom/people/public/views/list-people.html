@@ -9,13 +9,13 @@
     <label>Any: <input ng-model="search.$"></label> <br>
     <label>Name only <input ng-model="search.full_name"></label><br>
     <label>Url only <input ng-model="search.url"></label><br>
-    <label>Keywords only <input ng-model="search.moo"></label><br>
+    <label>Keywords only <input ng-model="search.keywords"></label><br>
     <label>Equality <input type="checkbox" ng-model="strict"></label><br>
   </div>
   <div>
   <form ng-submit="foobar()">
     Enter text and hit enter:
-    <input type="text" ng-model="moo" name="moo" />
+    <input type="text" ng-model="keywords" name="keywords" />
     <input type="submit" id="submit" value="Submit" />
   </form>
   </div>
@@ -23,7 +23,7 @@
     <a ng-repeat="person in people | filter:search:strict" ui-sref="people.view({ personId: person._id })" class="list-group-item">
       <h4 class="list-group-item-heading" ng-bind="person.full_name"></h4>
       <p class="list-group-item-text" ng-bind="person.url"></p>
-      <p class="list-group-item-text" ng-bind="person.moo"></p>
+      <p class="list-group-item-text" ng-bind="person.keywords"></p>
     </a>
   </div>
 </section>

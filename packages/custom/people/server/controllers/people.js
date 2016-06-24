@@ -40,7 +40,7 @@ exports.update = function (req, res) {
   person.email         = req.body.email;
   person.job           = req.body.job;
   person.location_safe = req.body.location_safe;
-  person.moo           = req.body.moo;
+  person.keywords      = req.body.keywords;
 
   person.save(function (err) {
     if (err) {
@@ -74,7 +74,7 @@ exports.delete = function (req, res) {
  * List of People
  */
 exports.list = function (req, res) {
-  var search = req.query.moo ? {'moo': new RegExp(req.query.moo, 'i')} : {};
+  var search = req.query.keywords ? {'keywords': new RegExp(req.query.keywords, 'i')} : {};
   var limit = req.query.limit || 100;
 
   Person.find(search).sort('-created').exec(function (err, people) {

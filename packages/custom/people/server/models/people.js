@@ -50,7 +50,7 @@ var PersonSchema = new Schema({
     type: String,
     default: ''
   },
-  moo: [String],
+  keywords: [String],
   user: {
     type: Schema.ObjectId,
     ref: 'User'

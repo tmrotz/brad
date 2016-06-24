@@ -9,7 +9,7 @@
     };
 
     $scope.foobar = function () {
-      $scope.people = PeopleService.query({moo: $scope.moo});
+      $scope.people = PeopleService.query({keywords: $scope.keywords});
     };
   }
 

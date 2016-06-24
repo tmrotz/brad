@@ -8,10 +8,23 @@
       Edit
     </a>
   </div>
-  <a class="lead" ng-href="{{vm.person.url}}">{{vm.person.url}}</a>
-  <p class="lead" ng-bind="vm.person.email"></p>
-  <p class="lead" ng-bind="vm.person.job"></p>
-  <p class="lead" ng-bind="vm.person.location_safe"></p>
-  <p class="lead" ng-bind="vm.person.phone"></p>
-  <p class="lead" ng-bind="vm.person.moo"></p>
+  <div>
+    <label class="control-label" for="url">Url:</label>
+    <a class="lead" id="url" ng-href="{{vm.person.url}}">{{vm.person.url}}</a>
+
+    <label class="control-label" for="email">Email:</label>
+    <p class="lead" id="email" ng-bind="vm.person.email"></p>
+
+    <label class="control-label" for="job">Job:</label>
+    <p class="lead" id="job" ng-bind="vm.person.job"></p>
+
+    <label class="control-label" for="location_safe">Location:</label>
+    <p class="lead" id="location_safe" ng-bind="vm.person.location_safe"></p>
+
+    <label class="control-label" for="phone">Phone:</label>
+    <p class="lead" id="phone" ng-bind="vm.person.phone"></p>
+
+    <label class="control-label" for="keywords">Keywords:</label>
+    <p class="lead" id="keywords" ng-bind="vm.person.keywords"></p>
+  </div>
 </section>
