@@ -34,9 +34,13 @@ exports.read = function (req, res) {
  */
 exports.update = function (req, res) {
   var person = req.person;
-  person.full_name = req.body.full_name;
-  person.url = req.body.url;
-  person.moo = req.body.moo;
+  person.full_name     = req.body.full_name;
+  person.url           = req.body.url;
+  person.phone         = req.body.phone;
+  person.email         = req.body.email;
+  person.job           = req.body.job;
+  person.location_safe = req.body.location_safe;
+  person.moo           = req.body.moo;
 
   person.save(function (err) {
     if (err) {
