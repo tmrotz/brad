@@ -35,6 +35,10 @@
           <label class="control-label" for="phone">Phone</label>
           <input name="phone" type="text" ng-model="vm.person.phone" id="phone" class="form-control" placeholder="phone">
         </div>
+        <div>
+          <label class="control-label" for="notes">Notes</label>
+          <textarea rows="20" name="notes" ng-model="vm.person.notes" id="notes" class="form-control" placeholder="notes"></textarea>
+        </div>
         <div class="form-group" show-errors>
           <label class="control-label" for="keywords">Keywords</label>
           <input name="keywords" ng-list ng-model="vm.person.keywords" id="keywords" class="form-control" placeholder="Keywords">

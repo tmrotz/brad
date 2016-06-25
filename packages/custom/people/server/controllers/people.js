@@ -40,6 +40,7 @@ exports.update = function (req, res) {
   person.email         = req.body.email;
   person.job           = req.body.job;
   person.location_safe = req.body.location_safe;
+  person.notes         = req.body.notes;
   person.keywords      = req.body.keywords;
 
   person.save(function (err) {

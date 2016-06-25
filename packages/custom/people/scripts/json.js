@@ -3,12 +3,12 @@
 var fs = require('fs');
 var json = require('./bookmarks.json');
 
-function parseJSON(json, attributes, fd) {
+function parseJSON(json, keywords, fd) {
   if (json.type === 'url') {
     var bookmark = {};
     bookmark.full_name = json.name;
     bookmark.url = json.url;
-    bookmark.attributes = attributes;
+    bookmark.keywords = keywords;
     fs.writeSync(fd, JSON.stringify(bookmark) + '\n', function (err) {
       if (err) throw err;
     });
@@ -16,13 +16,13 @@ function parseJSON(json, attributes, fd) {
     return;
   }
 
-  attributes.push(json.name);
+  keywords.push(json.name);
   for (var key in json.children) {
     if (json.children.hasOwnProperty(key)) {
-      parseJSON(json.children[key], attributes, fd);
+      parseJSON(json.children[key], keywords, fd);
     }
   }
-  attributes.pop();
+  keywords.pop();
 }
 
 var fd = fs.openSync('people.json', 'a');
