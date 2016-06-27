@@ -75,8 +75,13 @@ exports.delete = function (req, res) {
  * List of People
  */
 exports.list = function (req, res) {
+  if (!req.query.keywords) {
+    return res.status(400).send({
+      message: 'Search for something that isn\'t nothing, or whitespace'
+    });
+  }
   var search = req.query.keywords ? {'keywords': new RegExp(req.query.keywords, 'i')} : {};
-  var limit = req.query.limit || 100;
+  var limit = 100;
 
   Person.find(search).sort('-created').exec(function (err, people) {
     if (err) {
