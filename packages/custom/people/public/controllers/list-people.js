@@ -9,7 +9,11 @@
     };
 
     $scope.foobar = function () {
-      $scope.people = PeopleService.query({keywords: $scope.keywords});
+      $scope.people = PeopleService.query({
+        full_name: $scope.full_name,
+        url: $scope.url,
+        keywords: $scope.keywords
+      });
     };
   }
 

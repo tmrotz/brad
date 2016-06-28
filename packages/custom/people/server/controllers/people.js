@@ -75,13 +75,21 @@ exports.delete = function (req, res) {
  * List of People
  */
 exports.list = function (req, res) {
-  if (!req.query.keywords) {
+  if (!req.query.full_name && !req.query.url && !req.query.keywords) {
     return res.status(400).send({
       message: 'Search for something that isn\'t nothing, or whitespace'
     });
   }
-  var search = req.query.keywords ? {'keywords': new RegExp(req.query.keywords, 'i')} : {};
-  var limit = 100;
+  var search = {}
+  if (req.query.full_name) {
+    search.full_name = new RegExp(req.query.full_name, 'i');
+  }
+  if (req.query.url) {
+    search.url = new RegExp(req.query.url, 'i');
+  }
+  if (req.query.keywords) {
+    search.keywords = new RegExp(req.query.keywords, 'i');
+  }
 
   Person.find(search).sort('-created').exec(function (err, people) {
     if (err) {
