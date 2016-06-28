@@ -5,23 +5,29 @@
   <div class="alert alert-warning text-center">
     <a ui-sref="people.create">Create Person</a>
   </div>
-  <div>
-    <div>
-      <form ng-submit="foobar()">
-        <label>Name: <input type="text" ng-model="full_name" name="full_name"></label><br>
-        <label>Url: <input type="text" ng-model="url" name="url"></label><br>
-        <label>Keywords: <input type="text" ng-model="keywords" name="keywords"></label><br>
-        <input type="submit" id="submit" value="Submit" /><br>
-      </form>
-    </div>
-    <div>
-      <label>Name only <input ng-model="search.full_name"></label><br>
-      <label>Url only <input ng-model="search.url"></label><br>
-      <label>Keywords only <input ng-model="search.keywords"></label><br>
-      <label>Any: <input ng-model="search.$"></label> <br>
-      <label>Equality <input type="checkbox" ng-model="strict"></label><br>
-    </div>
-  </div>
+  <table class="table">
+    <tr>
+      <th>Search</th>
+      <th>Filter</th>
+    </tr>
+    <tr>
+      <td>
+        <form ng-submit="foobar()">
+          <label>Name: <input type="text" ng-model="full_name" name="full_name"></label><br>
+          <label>Url: <input type="text" ng-model="url" name="url"></label><br>
+          <label>Keywords: <input type="text" ng-model="keywords" name="keywords"></label><br>
+          <input type="submit" id="submit" value="Submit" /><br>
+        </form>
+      </td>
+      <td>
+        <label>Name only <input ng-model="search.full_name"></label><br>
+        <label>Url only <input ng-model="search.url"></label><br>
+        <label>Keywords only <input ng-model="search.keywords"></label><br>
+        <label>Any: <input ng-model="search.$"></label> <br>
+        <label>Equality <input type="checkbox" ng-model="strict"></label><br>
+      </td>
+    </tr>
+  </table>
   <div class="list-group">
     <a ng-repeat="person in people | filter:search:strict" ui-sref="people.view({ personId: person._id })" class="list-group-item">
       <h4 class="list-group-item-heading" ng-bind="person.full_name"></h4>
