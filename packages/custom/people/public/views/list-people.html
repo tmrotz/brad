@@ -15,16 +15,26 @@
         <form ng-submit="foobar()">
           <label>Name: <input type="text" ng-model="full_name" name="full_name"></label><br>
           <label>Url: <input type="text" ng-model="url" name="url"></label><br>
+          <label>Email: <input type="text" ng-model="email" name="email"></label><br>
+          <label>Job: <input type="text" ng-model="job" name="job"></label><br>
+          <label>Location: <input type="text" ng-model="location_safe" name="location_safe"></label><br>
+          <label>Phone: <input type="text" ng-model="phone" name="phone"></label><br>
+          <label>Notes: <input type="text" ng-model="notes" name="notes"></label><br>
           <label>Keywords: <input type="text" ng-model="keywords" name="keywords"></label><br>
           <input type="submit" id="submit" value="Submit" /><br>
         </form>
       </td>
       <td>
-        <label>Name only <input ng-model="search.full_name"></label><br>
-        <label>Url only <input ng-model="search.url"></label><br>
-        <label>Keywords only <input ng-model="search.keywords"></label><br>
+        <label>Name: <input ng-model="search.full_name"></label><br>
+        <label>Url: <input ng-model="search.url"></label><br>
+        <label>Email: <input ng-model="search.email"></label><br>
+        <label>Job: <input ng-model="search.job"></label><br>
+        <label>Location: <input ng-model="search.location_safe"></label><br>
+        <label>Phone: <input ng-model="search.phone"></label><br>
+        <label>Notes: <input ng-model="search.notes"></label><br>
+        <label>Keywords: <input ng-model="search.keywords"></label><br>
         <label>Any: <input ng-model="search.$"></label> <br>
-        <label>Equality <input type="checkbox" ng-model="strict"></label><br>
+        <label>Case Sensitive <input type="checkbox" ng-model="strict"></label><br>
       </td>
     </tr>
   </table>

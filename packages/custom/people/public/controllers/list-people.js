@@ -12,6 +12,11 @@
       $scope.people = PeopleService.query({
         full_name: $scope.full_name,
         url: $scope.url,
+        email: $scope.email,
+        job: $scope.job,
+        location_safe: $scope.location_safe,
+        phone: $scope.phone,
+        notes: $scope.notes,
         keywords: $scope.keywords
       });
     };

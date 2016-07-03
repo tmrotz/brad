@@ -87,6 +87,21 @@ exports.list = function (req, res) {
   if (req.query.url) {
     search.url = new RegExp(req.query.url, 'i');
   }
+  if (req.query.email) {
+    search.email = new RegExp(req.query.email, 'i');
+  }
+  if (req.query.job) {
+    search.job = new RegExp(req.query.job, 'i');
+  }
+  if (req.query.location_safe) {
+    search.location_safe = new RegExp(req.query.location_safe, 'i');
+  }
+  if (req.query.phone) {
+    search.phone = new RegExp(req.query.phone, 'i');
+  }
+  if (req.query.notes) {
+    search.notes = new RegExp(req.query.notes, 'i');
+  }
   if (req.query.keywords) {
     search.keywords = new RegExp(req.query.keywords, 'i');
   }
