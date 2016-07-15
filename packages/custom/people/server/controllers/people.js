@@ -75,11 +75,18 @@ exports.delete = function (req, res) {
  * List of People
  */
 exports.list = function (req, res) {
-  if (!req.query.full_name && !req.query.url && !req.query.keywords) {
+  var one_of_them_exists =
+    req.query.full_name || req.query.url ||
+    req.query.email || req.query.job ||
+    req.query.location_safe || req.query.phone ||
+    req.query.notes || req.query.keywords;
+
+  if (!one_of_them_exists) {
     return res.status(400).send({
       message: 'Search for something that isn\'t nothing, or whitespace'
     });
   }
+
   var search = {}
   if (req.query.full_name) {
     search.full_name = new RegExp(req.query.full_name, 'i');
