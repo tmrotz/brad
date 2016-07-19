@@ -14,28 +14,151 @@
     <tr>
       <td>
         <form ng-submit="foobar()">
-          <label>Name: <input type="text" ng-model="full_name" name="full_name"></label><br>
-          <label>Url: <input type="text" ng-model="url" name="url"></label><br>
-          <label>Email: <input type="text" ng-model="email" name="email"></label><br>
-          <label>Job: <input type="text" ng-model="job" name="job"></label><br>
-          <label>Location: <input type="text" ng-model="location_safe" name="location_safe"></label><br>
-          <label>Phone: <input type="text" ng-model="phone" name="phone"></label><br>
-          <label>Notes: <input type="text" ng-model="notes" name="notes"></label><br>
-          <label>Keywords: <input type="text" ng-model="keywords" name="keywords"></label><br>
-          <input type="submit" id="submit" value="Submit" /><br>
+          <table>
+            <tr>
+              <td>
+                <label>Name: </label>
+              </td>
+              <td>
+                <input type="text" ng-model="full_name" name="full_name">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>Url: </label>
+              </td>
+              <td>
+                <input type="text" ng-model="url" name="url">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>Email: </label>
+              </td>
+              <td>
+                <input type="text" ng-model="email" name="email">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>Job: </label>
+              </td>
+              <td>
+                <input type="text" ng-model="job" name="job">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>Location: </label>
+              </td>
+              <td>
+                <input type="text" ng-model="location_safe" name="location_safe">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>Phone: </label>
+              </td>
+              <td>
+                <input type="text" ng-model="phone" name="phone">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>Notes: </label>
+              </td>
+              <td>
+                <input type="text" ng-model="notes" name="notes">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>Keywords: </label>
+              </td>
+              <td>
+                <input type="text" ng-model="keywords" name="keywords">
+              </td>
+            </tr>
+          </table>
+          <input type="submit" id="submit" value="Submit" />
         </form>
       </td>
       <td>
-        <label>Name: <input ng-model="search.full_name"></label><br>
-        <label>Url: <input ng-model="search.url"></label><br>
-        <label>Email: <input ng-model="search.email"></label><br>
-        <label>Job: <input ng-model="search.job"></label><br>
-        <label>Location: <input ng-model="search.location_safe"></label><br>
-        <label>Phone: <input ng-model="search.phone"></label><br>
-        <label>Notes: <input ng-model="search.notes"></label><br>
-        <label>Keywords: <input ng-model="search.keywords"></label><br>
-        <label>Any: <input ng-model="search.$"></label> <br>
-        <label>Case Sensitive <input type="checkbox" ng-model="strict"></label><br>
+        <table>
+          <tr>
+            <td>
+              <label>Name: </label>
+            </td>
+            <td>
+              <input ng-model="search.full_name">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>Url: </label>
+            </td>
+            <td>
+              <input ng-model="search.url">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>Email: </label>
+            </td>
+            <td>
+              <input ng-model="search.email">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>Job: </label>
+            </td>
+            <td>
+              <input ng-model="search.job">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>Location: </label>
+            </td>
+            <td>
+              <input ng-model="search.location_safe">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>Phone: </label>
+            </td>
+            <td>
+              <input ng-model="search.phone">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>Notes: </label>
+            </td>
+            <td>
+              <input ng-model="search.notes">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>Keywords: </label>
+            </td>
+            <td>
+              <input ng-model="search.keywords">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>Any: </label>
+            </td>
+            <td>
+              <input ng-model="search.$">
+            </td>
+          </tr>
+        </table>
+        <label>Case Sensitive: <input type="checkbox" ng-model="strict"></label>
       </td>
     </tr>
   </table>
