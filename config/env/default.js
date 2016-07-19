@@ -6,16 +6,16 @@ var path = require('path'),
 module.exports = {
   root: rootPath,
   http: {
-    port: false
+    port: process.env.PORT || 3000
   },
   https: {
-    port: process.env.PORT || 3000,
+    port: false,
 
     // Paths to key and cert as string
     ssl: {
-      key: './ssl/server.key',
-      cert: './ssl/server.crt',
-      ca: './ssl/ca.crt'
+      key: '',
+      cert: '',
+      ca: ''
     }
   },
   hostname: process.env.HOST || process.env.HOSTNAME,
