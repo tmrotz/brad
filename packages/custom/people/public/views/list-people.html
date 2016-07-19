@@ -166,6 +166,11 @@
     <a ng-repeat="person in people | filter:search:strict" ui-sref="people.view({ personId: person._id })" class="list-group-item">
       <h4 class="list-group-item-heading" ng-bind="person.full_name"></h4>
       <p class="list-group-item-text" ng-bind="person.url"></p>
+      <p class="list-group-item-text ng-hide" ng-bind="person.email"></p>
+      <p class="list-group-item-text ng-hide" ng-bind="person.job"></p>
+      <p class="list-group-item-text ng-hide" ng-bind="person.location_safe"></p>
+      <p class="list-group-item-text ng-hide" ng-bind="person.phone"></p>
+      <p class="list-group-item-text ng-hide" ng-bind="person.notes"></p>
       <p class="list-group-item-text" ng-bind="person.keywords"></p>
     </a>
   </div>
