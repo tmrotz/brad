@@ -3,9 +3,10 @@
 
   /* jshint -W098 */
 
-  function PeopleController($scope, $state, person, $window) {
+  function PeopleController($scope, $state, person, $window, MeanUser) {
     var vm = this;
 
+    vm.user = MeanUser;
     vm.person = person;
     vm.error = null;
     vm.form = {};
@@ -49,6 +50,6 @@
     .module('mean.people')
     .controller('PeopleController', PeopleController);
 
-  PeopleController.$inject = ['$scope', '$state', 'personResolve', '$window'];
+  PeopleController.$inject = ['$scope', '$state', 'personResolve', '$window', 'MeanUser'];
 
 })();

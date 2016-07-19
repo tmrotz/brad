@@ -66,7 +66,7 @@ exports.delete = function (req, res) {
         message: err.message
       });
     } else {
-      res.json(person);
+      return res.status(200);
     }
   });
 };

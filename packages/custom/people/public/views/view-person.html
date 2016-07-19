@@ -4,9 +4,9 @@
   </div>
   <div class="pull-right">
     <a class="btn btn-primary" ui-sref="people.edit({ personId: vm.person._id })">
-      <!--<i class="glyphicon glyphicon-edit"></i>-->
       Edit
     </a>
+    <input type="button" class="btn btn-primary" ng-click="vm.remove()" value="Delete" ng-show="{{vm.user.isAdmin}}">
   </div>
   <div>
     <label class="control-label" for="url">Url:</label>

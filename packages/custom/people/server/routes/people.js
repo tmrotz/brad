@@ -16,10 +16,9 @@
       .post(PeopleController.create);
 
     // Single person routes
-    app.route('/api/people/:personId').all(requiresEmployee)
-      .get(PeopleController.read)
-      .put(PeopleController.update)
-      .delete(PeopleController.delete);
+    app.get('/api/people/:personId', requiresEmployee, PeopleController.read);
+    app.put('/api/people/:personId', requiresEmployee, PeopleController.update);
+    app.delete('/api/people/:personId', requiresAdmin, PeopleController.delete);
 
     // Finish by binding the person middleware
     app.param('personId', PeopleController.personByID);
