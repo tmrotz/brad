@@ -9,25 +9,63 @@
     <input type="button" class="btn btn-primary" ng-click="vm.remove()" value="Delete" ng-show="{{vm.user.isAdmin}}">
   </div>
   <div>
-    <label class="control-label" for="url">Url:</label>
-    <a class="lead" id="url" ng-href="{{vm.person.url}}">{{vm.person.url}}</a>
+    <table class="table">
+      <tr>
+        <td>
+          <label class="control-label" for="url">Url:</label>
+        </td>
+        <td>
+          <a class="lead" id="url" ng-href="{{vm.person.url}}">{{vm.person.url}}</a>
+        </td>
+      </tr>
 
-    <label class="control-label" for="email">Email:</label>
-    <p class="lead" id="email" ng-bind="vm.person.email"></p>
+      <tr>
+        <td>
+          <label class="control-label" for="email">Email:</label>
+        </td>
+        <td>
+          <p class="lead" id="email" ng-bind="vm.person.email"></p>
+        </td>
+      </tr>
 
-    <label class="control-label" for="job">Job:</label>
-    <p class="lead" id="job" ng-bind="vm.person.job"></p>
+      <tr>
+        <td>
+          <label class="control-label" for="job">Job:</label>
+        </td>
+        <td>
+          <p class="lead" id="job" ng-bind="vm.person.job"></p>
+        </td>
+      </tr>
 
-    <label class="control-label" for="location_safe">Location:</label>
-    <p class="lead" id="location_safe" ng-bind="vm.person.location_safe"></p>
+      <tr>
+        <td>
+          <label class="control-label" for="location_safe">Location:</label>
+        </td>
+        <td>
+          <p class="lead" id="location_safe" ng-bind="vm.person.location_safe"></p>
+        </td>
+      </tr>
 
-    <label class="control-label" for="phone">Phone:</label>
-    <p class="lead" id="phone" ng-bind="vm.person.phone"></p>
+      <tr>
+        <td>
+          <label class="control-label" for="phone">Phone:</label>
+        </td>
+        <td>
+          <p class="lead" id="phone" ng-bind="vm.person.phone"></p>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label class="control-label" for="keywords">Keywords:</label>
+        </td>
+        <td>
+          <p class="lead" id="keywords" ng-bind="vm.person.keywords"></p>
+        </td>
+      </tr>
+    <table>
 
     Notes
     <pre>{{vm.person.notes}}</pre>
-
-    <label class="control-label" for="keywords">Keywords:</label>
-    <p class="lead" id="keywords" ng-bind="vm.person.keywords"></p>
   </div>
 </section>
