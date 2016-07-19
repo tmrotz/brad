@@ -4,6 +4,7 @@
   </div>
   <div class="alert alert-warning text-center">
     <a ui-sref="people.create">Create Person</a>
+    <input type="button" class="btn btn-primary" ng-click="duplicates()" value="Show Duplicates" ng-show="{{user.isAdmin}}">
   </div>
   <table class="table">
     <tr>

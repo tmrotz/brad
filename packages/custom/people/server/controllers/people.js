@@ -125,6 +125,52 @@ exports.list = function (req, res) {
 };
 
 /**
+ * List of Dupliacte People
+ */
+exports.duplicates = function (req, res) {
+  var aggregate = [
+    {
+      $group: {
+        _id: { url: '$url' },
+        count: { $sum: 1 }
+      }
+    },
+    {
+      $match: {
+        count: { $gte: 2 }
+      }
+    }
+  ];
+  Person.aggregate(aggregate, function (err, groups) {
+    if (err) {
+      return res.status(400).send({
+        message: err.message
+      });
+    } else {
+
+      var dup_urls = [];
+      for (var i = 0; i < groups.length; i++) {
+        var group = groups[i];
+        var _id = group._id;
+        dup_urls.push(_id.url);
+      }
+
+      Person.find({url: {$in: dup_urls}}).sort('url').exec(function (err, people) {
+        if (err) {
+          return res.status(400).send({
+            message: err.message
+          });
+        } else {
+          res.json(people);
+        }
+      });
+    }
+  });
+
+
+};
+
+/**
  * Person Middleware
  */
 exports.personByID = function (req, res, next, id) {

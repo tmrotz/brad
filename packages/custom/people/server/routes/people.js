@@ -15,6 +15,8 @@
       .get(PeopleController.list)
       .post(PeopleController.create);
 
+    app.get('/api/people/duplicates', requiresAdmin, PeopleController.duplicates);
+
     // Single person routes
     app.get('/api/people/:personId', requiresEmployee, PeopleController.read);
     app.put('/api/people/:personId', requiresEmployee, PeopleController.update);
