@@ -25,7 +25,15 @@ function scrape() {
   });
 }
 
+function updatePerson() {
+  chrome.tabs.query({}, function(tabs) {
+    console.log(tabs);
+  });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelector('#scrape').addEventListener(
       'click', scrape);
+  document.querySelector('#updatePerson').addEventListener(
+      'click', updatePerson);
 });
