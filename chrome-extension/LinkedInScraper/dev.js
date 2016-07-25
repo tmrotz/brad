@@ -1,9 +1,22 @@
 
-var waitForRenderAndDoSomething = function() {
+chrome.runtime.onMessage.addListener(
+  function(request, sender, sendResponse) {
+    if (request.secret == 'Fill out form plz') {
+      
+      waitForRenderAndDoSomething(request.data);
+      
+      sendResponse({farewell: 'goodbye'});
+    } else if (request.secret == 'Get URL plz') {
+      var data = { url: document.getElementById('url').getAttribute("href") }
+      sendResponse(data);
+    }
+  }
+);
+
+var waitForRenderAndDoSomething = function(data) {
   if(document.getElementById('full_name') == null) {
-    setTimeout(waitForRenderAndDoSomething); // Wait for all templates to be loaded
+    setTimeout(waitForRenderAndDoSomething(data));
   } else {
-    //the code which needs to run after dom rendering
     if (data.hasOwnProperty('full_name')) {
       document.getElementById('full_name').value = data.full_name;  
     }
@@ -27,4 +40,3 @@ var waitForRenderAndDoSomething = function() {
     }
   }
 }
-setTimeout(waitForRenderAndDoSomething); // Waits for first digest cycle

@@ -16,11 +16,14 @@
     {
       "matches": ["https://www.linkedin.com/*"],
       "js": ["linkedin.js"]
+    },
+    {
+      "matches": ["https://104.236.247.194:3000/*"],
+      "js": ["dev.js"]
     }
   ],
   
   "permissions": [
-    "tabs",
-    "https://104.236.247.194:3000/*"
+    "tabs"
   ]
 }
