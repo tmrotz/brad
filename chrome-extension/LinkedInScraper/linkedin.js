@@ -27,8 +27,11 @@ function scrapeLinkedin() {
   
   
   var url = window.location.href;
+  data.url = url;
   var clean_url = url.substring(0, url.indexOf('?'));
-  data.url = clean_url;
+  if (clean_url) {
+    data.url = clean_url;
+  }
   
   
   

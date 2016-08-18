@@ -13,15 +13,11 @@ function scrapeLinkedIn() {
       } else if (response.secret == 'goodbye') {
 
         chrome.tabs.create({url : 'https://104.236.247.194:3000/people/create', active: false}, function (tab) {
-          var data = {secret: 'Fill out form plz', data: response.data};
-          sendMessage(tab.id, data);
-          
-          var code = "var data = " + JSON.stringify(response.data) + ";";
-          chrome.tabs.executeScript(tab.id, {code: code}, function() {
-            chrome.tabs.executeScript(tab.id, {file: 'dev.js'}, function() {
-              chrome.tabs.update(tab.id, {active: true});
-            });
-          });
+          setTimeout(function(){
+            var data = {secret: 'Fill out form plz', data: response.data};
+            chrome.tabs.sendMessage(tab.id, data);
+            chrome.tabs.update(tab.id, {active: true});
+          }, 5000);
         });
 
       }
@@ -29,28 +25,47 @@ function scrapeLinkedIn() {
   });
 }
 
+/**
+ * Get url from current page
+ * Open url
+ * Send message to new tab
+ * Respond with page data
+ * Update current page with new data
+ */
 function updatePerson() {
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+    
     if (!tabs[0].url.startsWith('https://104.236.247.194:3000/people')) {
-      alert('Doesn\t work on this page!');
+      alert('Doesn\'t work on this page!');
       return;
     }
+    if (!tabs[0].url.endsWith('/edit')) {
+      alert('Doesn\'t work on this page!');
+      return;
+    }
+    
+    var activeTab = tabs[0];
 
-    chrome.tabs.sendMessage(tabs[0].id, {secret: 'Get URL plz'}, function(response) {
+    chrome.tabs.sendMessage(activeTab.id, {secret: 'Get URL plz'}, function(response) {
 
       if (response == null) {
         console.log('No message handler');
       } else if (response.url) {
         chrome.tabs.create({url: response.url, active: false}, function (tab) {
-          chrome.tabs.sendMessage(tab.id, {secret: 'hello'}, function(response) {
+          
+          setTimeout(function(){
+            chrome.tabs.sendMessage(tab.id, {secret: 'hello'}, function(response) {
             
-            if (response == null) {
-              console.log('No message handler');
-            } else if (response.secret == 'goodbye') {
-              console.log(response.data);
-            }
+              if (response == null) {
+                console.log('No message handler');
+              } else if (response.secret == 'goodbye') {
+                var data = {secret: 'Fill out form plz', data: response.data};
+                chrome.tabs.sendMessage(activeTab.id, data);
+              }
             
-          });
+            });
+          }, 5000);
+          
         });
       }
 

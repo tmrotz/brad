@@ -7,7 +7,7 @@ chrome.runtime.onMessage.addListener(
       
       sendResponse({farewell: 'goodbye'});
     } else if (request.secret == 'Get URL plz') {
-      var data = { url: document.getElementById('url').getAttribute("href") }
+      var data = { url: document.getElementById('url').value }
       sendResponse(data);
     }
   }
