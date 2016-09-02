@@ -87,7 +87,7 @@ exports.list = function (req, res) {
     });
   }
 
-  var search = {}
+  var search = {};
   if (req.query.full_name) {
     search.full_name = new RegExp(req.query.full_name, 'i');
   }
